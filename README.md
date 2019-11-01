@@ -57,4 +57,39 @@ void porLineas(uint32_t c, uint8_t wait) {
       delay(wait);
     }
 }
+void degradado(uint32_t c, uint8_t wait) {
+  for(uint16_t i=0; i<=PIXELPERLINE; i++) {
+
+    for(int j=1; j<=LINES; j++){
+      if (j % 2 == 0){
+        //Es linea par
+        pixels.setPixelColor(j*PIXELPERLINE - 1 - PIXELPERLINE + i, c);
+      }else{
+        //Es linea impar
+        pixels.setPixelColor(j*PIXELPERLINE - 1 - i, c);
+      }
+      
+    }
+    
+    pixels.show();
+    delay(wait);
+  }
+}
+
+void theaterChase(uint32_t c, uint8_t wait) {
+  for (int j=0; j<10; j++) {  //do 10 cycles of chasing
+    for (int q=0; q < 3; q++) {
+      for (int i=0; i < pixels.numPixels(); i=i+3) {
+        pixels.setPixelColor(i+q, c);    //turn every third pixel on
+      }
+      pixels.show();
+
+      delay(wait);
+
+      for (int i=0; i < pixels.numPixels(); i=i+3) {
+        pixels.setPixelColor(i+q, 0);        //turn every third pixel off
+      }
+    }
+  }
+}
 
