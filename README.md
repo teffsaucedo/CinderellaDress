@@ -33,14 +33,14 @@ void loop() {
 
 
   
-  //colorYair(pixels.Color(0, 0, 100), 1);
+  //colorTeff(pixels.Color(0, 0, 100), 1);
   //delay(500);
   //pixels.fill(pixels.Color(0, 0, 0), 0, NUMPIXELS);
   //delay(1500);
   
   
 }
-void colorYair(uint32_t c, uint8_t wait) {
+void colorTeff(uint32_t c, uint8_t wait) {
   for(uint16_t i=0; i<=NUMPIXELS; i++) {
     pixels.setPixelColor(i, c);
     pixels.show();
