@@ -40,3 +40,21 @@ void loop() {
   
   
 }
+void colorYair(uint32_t c, uint8_t wait) {
+  for(uint16_t i=0; i<=NUMPIXELS; i++) {
+    pixels.setPixelColor(i, c);
+    pixels.show();
+    delay(wait);
+  }
+}
+
+void porLineas(uint32_t c, uint8_t wait) {
+    for(int j=0; j<=LINES; j++){
+      for(int i=1; i<=PIXELPERLINE; i++){
+          pixels.setPixelColor(i + j*PIXELPERLINE - 1, c);
+      }
+      pixels.show();
+      delay(wait);
+    }
+}
+
