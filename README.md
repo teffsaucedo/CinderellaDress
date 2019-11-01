@@ -30,15 +30,11 @@ void loop() {
   delay(1500);  
 
    theaterChase(pixels.Color(20,20,255), 50);//Los leds se encienden y apagan alternativamente uno si y uno no
-
-
-  
+   
   //colorTeff(pixels.Color(0, 0, 100), 1);
   //delay(500);
   //pixels.fill(pixels.Color(0, 0, 0), 0, NUMPIXELS);
   //delay(1500);
-  
-  
 }
 void colorTeff(uint32_t c, uint8_t wait) {
   for(uint16_t i=0; i<=NUMPIXELS; i++) {
@@ -47,7 +43,6 @@ void colorTeff(uint32_t c, uint8_t wait) {
     delay(wait);
   }
 }
-
 void porLineas(uint32_t c, uint8_t wait) {
     for(int j=0; j<=LINES; j++){
       for(int i=1; i<=PIXELPERLINE; i++){
@@ -67,8 +62,7 @@ void degradado(uint32_t c, uint8_t wait) {
       }else{
         //Es linea impar
         pixels.setPixelColor(j*PIXELPERLINE - 1 - i, c);
-      }
-      
+      }  
     }
     
     pixels.show();
